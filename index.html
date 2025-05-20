@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heart's Story - For Palak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff4757;
+            --dark-color: #2f3542;
+            --light-color: #f1f2f6;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fef6f7;
+            color: #333;
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: url('https://transparenttextures.com/patterns/light-paper-fibers.png');
+        }
+        
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, rgba(255,107,129,0.1) 0%, rgba(255,71,87,0.1) 100%);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, #ff6b81, #ff4757);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,107,129,0.2);
+        }
+        
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .year-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255,107,129,0.3);
+        }
+        
+        .emoji {
+            font-size: 1.3rem;
+            margin: 0 0.3rem;
+            vertical-align: middle;
+            transition: all 0.3s ease;
+        }
+        
+        .emoji:hover {
+            transform: scale(1.3) rotate(10deg);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 90%;
+            padding: 0 0.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight:hover {
+            background-size: 100% 100%;
+        }
+        
+        .quote {
+            font-style: italic;
+            padding: 2rem;
+            background-color: #fff9fa;
+            border-left: 4px solid var(--primary-color);
+            margin: 2rem 0;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(255,107,129,0.1);
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            left: 10px;
+            top: -20px;
+            color: rgba(255, 107, 129, 0.15);
+            font-family: Georgia, serif;
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+            color: var(--primary-color);
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 3rem;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, rgba(255,107,129,0.1) 0%, rgba(255,71,87,0.1) 100%);
+            border-radius: 15px;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            color: rgba(255, 107, 129, 0.6);
+            animation: float 8s linear infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .heart:hover {
+            color: var(--primary-color);
+            transform: scale(1.5);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .final-section {
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 15px 35px rgba(255,107,129,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 8s infinite linear;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+        
+        .final-text {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 2rem;
+            display: inline-block;
+            transform: rotate(-5deg);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(255,107,129,0.4);
+            cursor: pointer;
+            z-index: 1000;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .music-control:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(255,107,129,0.6);
+        }
+        
+        .special-button {
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,129,0.3);
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .special-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,107,129,0.4);
+        }
+        
+        .special-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 3s infinite linear;
+        }
+        
+        .hidden-message {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease;
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .love-letter {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .letter-content {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .quote {
+                padding: 1.5rem;
+            }
+            
+            .final-text {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .story-container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1.2rem;
+            }
+            
+            .year-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+    </div>
+    
+    <div class="story-container">
+        <div class="header animate__animated animate__fadeIn">
+            <h1 class="title">My Heart's Story <span class="heart-beat">❤️</span></h1>
+            <p class="subtitle">Every beat whispers your name, Palak...</p>
+            <div class="animate__animated animate__pulse animate__infinite" style="font-size: 2rem;">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <div class="year-badge">2011</div>
+            <p>My story began in <span class="highlight">2011, in Ashoknagar</span>.</p>
+            <p>I am mentioning that year because I was <span class="highlight">20 years old then</span>. The Ashoknagar marriage scene was amazing — and when I saw her, I saw that she was enjoying the marriage with her mother... because she was just <span class="highlight">12 at that time</span>. And a 12-year-old girl was very fond of partying. <span class="emoji">🎉</span></p>
+            <p>So this story began at that marriage... when I dropped her and her mother to their home.</p>
+            <p>On that day, my head was buzzing so much from the hangover — I could neither hear nor see clearly, because I was wandering in thoughts... about her.</p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>Suddenly, I heard a voice — my mom's — she said,</p>
+            <div class="quote">"Have you dropped them properly?"</div>
+            <p>I thought — why is the cure for my hangover playing in my ears... in her voice?</p>
+            <p>Because I was just... <span class="highlight">lost in her</span>. <span class="emoji">🌫️</span></p>
+            <p>So I looked up, looked ahead, and kept looking... <span class="highlight">witty grin, husky voice</span>, and her memory — wearing all olive green.</p>
+            <p>She reacted with a smile and said, <span class="quote">"Could I please get a..."</span> — I don't even remember what she was asking.</p>
+            <p>Now, this wasn't a scripted coincidence at that marriage.</p>
+            <p>And so, I just thought — <span class="highlight">"I will meet her again in the future... and she will be mine."</span></p>
+            <p>And I met her again. And I thank God for that. <span class="emoji">🙏</span></p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>I became a kind of teacher to her, guiding her.</p>
+            <p>Then we started talking daily on calls...</p>
+            <p>And this went on for several months — until her mindset and her voice changed... became comfortable with me. <span class="emoji">📞💭</span></p>
+            <p>One day, I asked her for coffee... but she was fond of tea <span class="emoji">☕</span>.</p>
+            <p>So we went for tea. I smiled and said yes.</p>
+            <p>It took her three months to shift from introvert to extrovert.</p>
+            <p>Because humans... are slow at times. <span class="emoji">⏳</span></p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>Just like that, <span class="highlight">Palak started living in my heart</span> — from her last birthday. <span class="emoji">🎂❤️</span></p>
+            <p>And just like that, my love for her started spreading.</p>
+            <p>My first love was Bhopal city, the one that raised me.</p>
+            <p>And my second love — was Palak.</p>
+            <p>I used to be very happy with her. She was also very fond of dancing and quotes. <span class="emoji">💃✨</span></p>
+            <p>We used to exchange daily reels, future imaginations, and quotes.</p>
+            <p>We even used to complete each other's sentences.</p>
+            <p>And our loneliness?</p>
+            <p>It disappeared.</p>
+            <p>We are often surrounded by loneliness...</p>
+            <p>And then one day — it becomes magic, as if it never existed.</p>
+            <p>Just like that, Palak made her home in my heart. <span class="emoji">🏡💫</span></p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>And then I want to talk about that evening...</p>
+            <p>The first time we met at my chacha's farmhouse.</p>
+            <p>And also those daily moments — when I used to pick you from the mandir, drop you home, and spend so much time together.</p>
+            <p>I kissed you. You kissed me.</p>
+            <p>And so many other things that we did —</p>
+            <p>All those physical touches — are so memorable, so fantastic. <span class="emoji">💋💭</span></p>
+            <p>And the thing I remember the most —</p>
+            <p>Those two moles in between — that became my trigger point, when I melted for you.</p>
+            <p>And when you kissed me on my forehead —</p>
+            <p>And again, kissed me on my forehead... <span class="emoji">😔</span></p>
+            <p>You said — <span class="quote">"If you go, I'll chase you... and tell the family you got me pregnant."</span> <span class="emoji">😅</span></p>
+            <p>It was silly, funny — and so beautiful.</p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>But then came the twist...</p>
+            <p>I started seeing someone comment on your photo...</p>
+            <p>Or you talking with someone...</p>
+            <p>And sometimes, whenever I tried to ask you — your tone got upset.</p>
+            <p>Because of my passive nature...</p>
+            <p>And the conversation would end... with a dropped call by you.</p>
+            <p>I know — every time you dropped the call —</p>
+            <p>I used to get rosy spices in my eyes,</p>
+            <p>And every red flag... looked aesthetic.</p>
+            <p>It would break me.</p>
+            <p>So I stopped asking... out of fear.</p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>But today is your annual function fest...</p>
+            <p>So how could I not ask you?</p>
+            <p>My hands started to shiver,</p>
+            <p>My voice began to stutter,</p>
+            <p>But I gathered some courage and said — <span class="quote">"Who is this Krishna?"</span></p>
+            <p>And your response?</p>
+            <p>You said — <span class="quote">"How many times have I told you to get your head out of your..."</span></p>
+            <p>I checked your call details...</p>
+            <p>And you said — <span class="quote">"You're going to spy on me too?"</span></p>
+            <p>When you said —</p>
+            <p><span class="quote">"Do whatever you want to do."</span></p>
+            <p>I was literally hurt.</p>
+            <p>I called you 35 times in a day...</p>
+            <p>You didn't reply.</p>
+            <p>You blocked me.</p>
+            <p>That day, the relationship broke.</p>
+            <p>Or maybe... it was already broken.</p>
+            <p>But the words were still.</p>
+        </div>
+        
+        <div class="section animate__animated animate__fadeInUp">
+            <p>And so I said —</p>
+            <div class="quote">"Be happy. Study daily, early in the morning. And if you ever need me — just drop a 'hi' — and I'll be there." <span class="emoji">💌</span></div>
+            <p>But you know what?</p>
+            <p>That day... I realized...</p>
+            <p>Often, it's more important than forgiving others —</p>
+            <p>To forgive... and free ourselves. <span class="emoji">🕊️</span></p>
+            <p>And often — the people we see as beautiful —</p>
+            <p>Are made beautiful... through our own eyes.</p>
+            <p>Whether she was perfect... or just seemed perfect...</p>
+            <p>Whether she is like me... or just seemed like me...</p>
+            <p>This question matters.</p>
+        </div>
+        
+        <div class="final-section animate__animated animate__fadeIn">
+            <p class="final-text">So that day — I realized something that I still carry today:</p>
+            <h2 class="mb-4">Love is a strange crime. <span class="emoji">🥀</span></h2>
+            <p>A strange crime — where you didn't even disagree with me.</p>
+            <p>This heart... never got closure.</p>
+            <p>You didn't keep the barrier of relationships.</p>
+            <p>You didn't give me my rights.</p>
+            <p>But you never stood against me either.</p>
+            <p>You just... faded.</p>
+            <p>And I... stayed.</p>
+            
+            <button class="special-button" id="specialButton">
+                <i class="fas fa-heart mr-2"></i> Click If You Miss Me
+            </button>
+            
+            <div id="hiddenMessage" class="hidden-message text-danger">
+                <h3 class="mb-3">My Dearest Palak,</h3>
+                <p>If you're reading this, know that my heart still beats only for you.</p>
+                <p>Every memory we shared is etched in my soul. Every laugh, every tear, every moment we had together—they're my most precious treasures.</p>
+                <p>I understand if you needed space, if you needed time. But please know, my love for you hasn't faded. Not one bit.</p>
+                <p>If there's even a 1% chance we can try again, I'm here, waiting with open arms and a heart full of love.</p>
+                <p>Will you give us another chance?</p>
+                <div class="mt-4">
+                    <button class="btn btn-outline-light mr-3 text-success" id="yesButton">Yes ❤️</button>
+                    <button class="btn btn-outline-light text-danger" id="noButton">Not Now</button>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <p class="signature">Always yours</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with <span class="heart-beat">❤️</span> for Palak</p>
+            <p class="mt-2">Every word in this story is true, just like my love for you</p>
+            <button class="btn btn-link mt-3" id="readLetter">Read My Secret Letter</button>
+        </div>
+    </div>
+
+    <div class="love-letter" id="loveLetter">
+        <div class="letter-content">
+            <span class="close-letter" id="closeLetter">&times;</span>
+            <h3 class="text-center mb-4" style="color: var(--primary-color);">My Secret Heart's Letter</h3>
+            <div class="text-center mb-4">
+                <img src="https://img.icons8.com/color/96/000000/love-letter.png" alt="Love Letter">
+            </div>
+            <p>My Beautiful Palak,</p>
+            <p>If you're reading this, it means you've reached the end of our story—or what I hope is just a chapter, not the ending.</p>
+            <p>I want you to know that no matter what happened between us, my love for you remains unchanged. You were my happy place, my comfort zone, my favorite person to share both the big moments and the small, quiet ones.</p>
+            <p>Remember how we used to complete each other's sentences? How we'd exchange those reels and quotes, imagining our future together? Those weren't just passing moments for me—they were glimpses of the life I truly wanted with you.</p>
+            <p>I've thought a lot about where things went wrong. Maybe I loved too hard, cared too much, held on too tight. But is that really such a crime? To love someone with your whole being?</p>
+            <p>If I could turn back time, I'd give you more space when you needed it. I'd listen more and question less. I'd remind you every day how precious you are to me, without making you feel trapped.</p>
+            <p>But here's what I can do now—I can promise to love you better. To trust more, to understand deeper, to be the safe place you can always return to.</p>
+            <p>The ball is in your court now, my love. If you ever feel ready to try again, I'll be here. Not as the possessive guy who called 35 times, but as the man who learned how to love you the way you deserve.</p>
+            <p>With all my heart,</p>
+            <p class="signature" style="color: var(--primary-color);">Yours always</p>
+            <div class="text-center mt-4">
+                <button class="special-button" id="unblockButton">
+                    <i class="fas fa-heartbeat mr-2"></i> Unblock My Heart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="./script.js"></script>
+</body>
+</html>
