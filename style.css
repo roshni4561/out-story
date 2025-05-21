@@ -1,0 +1,544 @@
+
+        :root {
+            --primary-color: #ff6b81;
+            --secondary-color: #ff4757;
+            --dark-color: #2f3542;
+            --light-color: #f1f2f6;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fef6f7;
+            color: #767474;
+            /* color: black; */
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: url('https://transparenttextures.com/patterns/light-paper-fibers.png');
+
+        
+        }
+        
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            background-image: cover;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding: 3rem 0;
+            /* background: linear-gradient(135deg, rgba(255,107,129,0.1) 0%, rgba(255,71,87,0.1) 100%); */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background-image: url(./first.JPG);
+
+    background-size: cover;
+    background-position: center;
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, #ff6b81, #ff4757);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .second-three {
+  position: relative;
+  overflow: hidden;
+  color: white; /* Ensure text is readable */
+  padding: 2rem;
+}
+
+/* Video background */
+.second-three .background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  /* pointer-events: none; ← REMOVE THIS LINE */
+}
+
+.second-three::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* darkens the video slightly */
+  z-index: 0;
+}
+.second-three .background-video {
+  z-index: 0;
+}
+
+.second-three::before {
+  z-index: 1;
+}
+
+.second-three .content, p, .quote {
+  position: relative;
+  z-index: 2;
+}
+
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,107,129,0.2);
+        }
+        .second-second{
+            background-image: url(./second.JPG);
+             background-size: cover;
+    background-position: top;
+
+        }
+
+ .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+
+.section-four {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  padding: 2rem;
+  height: 100vh; /* or adjust as needed to fit screen */
+}
+
+.section-four .background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.section-four::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* optional dark overlay */
+  z-index: 1;
+}
+
+.section-four p,
+.section-four .quote {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .year-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255,107,129,0.3);
+        }
+        
+        .emoji {
+            font-size: 1.3rem;
+            margin: 0 0.3rem;
+            vertical-align: middle;
+            transition: all 0.3s ease;
+        }
+        
+        .emoji:hover {
+            transform: scale(1.3) rotate(10deg);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 90%;
+            padding: 0 0.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight:hover {
+            background-size: 100% 100%;
+        }
+        
+        .quote {
+            font-style: italic;
+            padding: 2rem;
+            background-color:#ffc0cb47;
+            border-left: 4px solid var(--primary-color);
+            margin: 2rem 0;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(255,107,129,0.1);
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            left: 10px;
+            top: -20px;
+            color: rgba(255, 107, 129, 0.15);
+            font-family: Georgia, serif;
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+            color: var(--primary-color);
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 3rem;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, rgba(255,107,129,0.1) 0%, rgba(255,71,87,0.1) 100%);
+            border-radius: 15px;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            color: rgba(255, 107, 129, 0.6);
+            animation: float 8s linear infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .heart:hover {
+            color: var(--primary-color);
+            transform: scale(1.5);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .final-section {
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 15px 35px rgba(255,107,129,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 8s infinite linear;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+        
+        .final-text {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2.5rem;
+            color: white;
+            margin-top: 2rem;
+            display: inline-block;
+            transform: rotate(-5deg);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(255,107,129,0.4);
+            cursor: pointer;
+            z-index: 1000;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .music-control:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(255,107,129,0.6);
+        }
+        
+        .special-button {
+            background: linear-gradient(135deg, #ff6b81 0%, #ff4757 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,129,0.3);
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .special-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,107,129,0.4);
+        }
+        
+        .special-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 3s infinite linear;
+        }
+        
+        .hidden-message {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease;
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .love-letter {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 0.5s ease;
+
+        }
+        
+        .letter-content {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .quote {
+                padding: 1.5rem;
+            }
+            
+            .final-text {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .story-container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1.2rem;
+            }
+            
+            .year-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+.letter-content{
+/* display: none; */
+}
+
+.love-letter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.letter-content {
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  padding: 2rem;
+  max-height: 90vh; /* Limits height */
+  overflow-y: auto;  /* Enables vertical scroll if needed */
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  background-image: url(./letter.JPG);
+    background-position: top;
+    height: 100%;
+
+
+
+
+
+
+
+
+
+
+  background-size: cover;
+  background-position: center;
+  color: aqua;
+  font-style: italic;
+}
+
+
+
+
+
+.close-letter {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: red;
+
+
+
+}
