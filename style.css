@@ -420,6 +420,7 @@
             align-items: center;
             z-index: 2000;
             animation: fadeIn 0.5s ease;
+
         }
         
         .letter-content {
@@ -479,7 +480,7 @@
             }
         }
 .letter-content{
-
+/* display: none; */
 }
 
 .love-letter {
@@ -490,7 +491,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.85);
   z-index: 9999;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -510,7 +511,34 @@
   background-image: url(./letter.JPG);
     background-position: top;
     height: 100%;
-background-size: cover;
-color:aqua;
-font-style:italic;
+
+
+
+
+
+
+
+
+
+
+  background-size: cover;
+  background-position: center;
+  color: aqua;
+  font-style: italic;
+}
+
+
+
+
+
+.close-letter {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: red;
+
+
+
 }
